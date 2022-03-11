@@ -34,6 +34,7 @@ const Home = () => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
+  // search post function
   const searchPost = () => {
     if(search.trim()){
       //dispatch -> fetch search post
@@ -41,13 +42,15 @@ const Home = () => {
       history.push('/')
     }
   }
-
+  
+  // enable search by hit enter key
   const handleKeyPress = (e) => {
     if(e.keyCode===13){
       searchPost();
     }
   }
 
+  // search by tags chipinput functions
   const handleAdd = (tag) => setTags([...tags,tag]);
 
   const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete))
@@ -70,7 +73,7 @@ const Home = () => {
               <TextField 
                 name="search" 
                 variant='outlined' 
-                label="Search Memories" 
+                label="Search Posts" 
                 onKeyPress={handleKeyPress}
                 fullWidth
                 value={search}
@@ -93,7 +96,7 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-              <Paper elevation={6}>
+              <Paper className={classes.pagination} elevation={6}>
                 <Pagination />
               </Paper>
           </Grid>
