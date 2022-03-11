@@ -1,0 +1,12 @@
+node_modules
+build
+.env
+
+
+# client: change URL in src/api/index.js & package.json
+
+# // URL for deploy to heroku
+# // const url = 'https://surpasslabs.herokuapp.com/posts';
+
+# // URL for dev env
+# // const url = 'http://localhost:5000/posts';
