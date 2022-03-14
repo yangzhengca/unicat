@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Avatar, Toolbar, Typography, Button } from "@material-ui/core";
 import useStyles from "./styles";
-import memories from "../../images/unicat-logo.png";
+import logo from "../../images/unicat-logo.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGOUT } from "../../actions/actionTypes";
@@ -37,16 +37,16 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <div className={classes.brandContainer}>
-        <a href="/">
+      <Link to='/' className={classes.brandContainer}>
+
         <img
           className={classes.image}
-          src={memories}
-          alt="memories"
-          height="60"
+          src={logo}
+          alt="logo"
+          height="40"
           to="/"
         />
-        </a>
+
         <Typography
           component={Link}
           to="/"
@@ -54,9 +54,9 @@ const Navbar = () => {
           variant="h3"
           align="center"
         >
-          Unicat
+          UNICAT
         </Typography>
-      </div>
+      </Link>
       <Toolbar className={classes.toolbar}>
         {user ? (
           <div className={classes.profile}>
