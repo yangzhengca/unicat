@@ -8,7 +8,9 @@ import {
   FETCH_BY_SEARCH,
   START_LOADING,
   END_LOADING,
+  COMMENT,
 } from "../actions/actionTypes";
+import { commentPost } from "../api";
 
 export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {
@@ -49,6 +51,18 @@ export default (state = { isLoading: true, posts: [] }, action) => {
           post._id === action.payload._id ? action.payload : post
         ),
       };
+    case COMMENT:
+      return {
+        ...state,
+        posts: state.posts.map((post) => {
+          // return all the other posts normally...
+          // change the post that just received a comment...
+          if(post._id === action.payload._id) {
+            return action.payload;
+          }
+          return post;
+        })
+      }
     default:
       return state;
   }
