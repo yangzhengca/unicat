@@ -1,7 +1,11 @@
 import axios from 'axios';
 
 // replace base url when deploy to cloud
-const API =axios.create({ baseURL: 'http://localhost:5000' })
+const API =axios.create({ baseURL: 'https://unicatca.herokuapp.com/' })
+// base URL for deploy to heroku
+// const url = 'https://unicatca.herokuapp.com/';
+// baseURL for dev env
+// const url = 'http://localhost:5000/';
 
 API.interceptors.request.use(( req ) => {
     if(localStorage.getItem('profile')){
@@ -10,11 +14,7 @@ API.interceptors.request.use(( req ) => {
     return req
 })
 
-// URL for deploy to heroku
-// const url = 'https://surpasslabs.herokuapp.com/posts';
 
-// URL for dev env
-// const url = 'http://localhost:5000/posts';
 
 
 export const fetchPost = (id) => API.get(`/posts/${id}`);

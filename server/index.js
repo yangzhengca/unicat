@@ -2,13 +2,15 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from "mongoose"
 import cors from 'cors'
-import dotenv from 'dotenv'
+// comment for heroku deployment
+// import dotenv from 'dotenv'
 import postRoutes from './routes/posts.js'
 import userRoutes from './routes/users.js'
 
 
 const app = express()
-dotenv.config()
+// comment for heroku deployment
+// dotenv.config()
 
 
 app.use(bodyParser.json({limit:"30mb",extended:true}))
@@ -22,7 +24,13 @@ app.get('/',(req,res)=>{
 })
 
 const PORT= process.env.PORT || 5000
-const DB_URL=process.env.DB_URL
+// const DB_URL=process.env.DB_URL
+
+// change for heroku deployment
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_NAME = process.env.DB_NAME;
+const DB_URL=`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.m1pot.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
 
 mongoose.connect(DB_URL,{ useNewUrlParser:true, useUnifiedTopology:true})
     .then(()=>app.listen(PORT,()=>console.log(`🚀  Server running on port: ${PORT} ...`)))
