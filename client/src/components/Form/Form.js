@@ -53,7 +53,7 @@ const Form = ({currentId,setCurrentId}) => {
     return(
       <Paper className={classes.paper} elevation={6}>
         <Typography variant='h6' align='center'>
-          Please Sign In to create your own post and like other's posts.
+          Please Sign In to create your own post, like other's posts and leave your comment.
         </Typography>
       </Paper>
     )

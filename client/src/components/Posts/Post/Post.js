@@ -74,7 +74,7 @@ const Post = ({ post, setCurrentId }) => {
     <Card className={classes.card} raised elevation={6}>
       <ButtonBase 
         component="span"
-        name="test"
+        name="details"
         className={classes.cardAction}
         onClick={openPost}
       >
