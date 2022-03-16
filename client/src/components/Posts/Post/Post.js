@@ -48,9 +48,11 @@ const Post = ({ post, setCurrentId }) => {
         <>
           <ThumbUpAltIcon fontSize="small" />
           &nbsp;
-          {likes.length > 2
+          {/* {likes.length > 2
             ? `You and ${likes.length - 1} others`
-            : `${likes.length} like${likes.length > 1 ? "s" : ""}`}
+            : `${likes.length} like${likes.length > 1 ? "s" : ""}`} */}
+          
+          {likes.length} {likes.length === 1 ? "Like" : "Likes"}
         </>
       ) : (
         <>
