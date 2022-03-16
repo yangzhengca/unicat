@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Typography, TextField, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles';
@@ -12,6 +12,12 @@ const CommentSection = ({ post }) => {
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
     const commentsRef = useRef();
+
+    // when change detail page from one post to another, update comments
+    useEffect(() => {
+        setComments(post?.comments)
+    }, [post])
+    
 
     const handleClick = async () => {
         const finalComment = `${user?.result?.name}: ${comment}`;
