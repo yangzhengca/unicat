@@ -4,6 +4,7 @@ build
 
 
 # client: change URL in src/api/index.js & package.json
+# comment redux tool in index.js
 
 # // URL for deploy to heroku
 # // const url = 'https://surpasslabs.herokuapp.com/posts';

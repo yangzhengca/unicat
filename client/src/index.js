@@ -20,7 +20,8 @@ const store = createStore(
  //   initialState,
    compose(
      applyMiddleware(...middleware),
-     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    //  comment for deployment, otherwise, would not be opened in other browsers
+    //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
    )
  );
 
