@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme)=>({
   media: {
     height: 0,
     paddingTop: '56.25%',
@@ -53,4 +53,26 @@ export default makeStyles({
     display: 'block',
     textAlign: 'initial',
   },
-});
+
+  // for delete popup modal
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    display: 'flex-box',
+    marginLeft: '10px'
+  },
+  buttonGroup:{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginTop:'2em'
+  },
+
+}));

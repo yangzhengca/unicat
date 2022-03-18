@@ -10,7 +10,7 @@ import {
   END_LOADING,
   COMMENT,
 } from "../actions/actionTypes";
-import { commentPost } from "../api";
+
 
 export default (state = { isLoading: true, posts: [] }, action) => {
   switch (action.type) {

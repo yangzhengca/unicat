@@ -19,8 +19,9 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from "../../../actions/posts";
 import { useHistory } from "react-router-dom";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import Modal from "@material-ui/core/Modal";
 
 const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -28,6 +29,8 @@ const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [likes, setLikes] = useState(post?.likes);
+  // delete popup modal state
+  const [open, setOpen] = useState(false);
 
   // use to simplify code
   const userId = user?.result.googleId || user?.result?._id;
@@ -96,6 +99,27 @@ const Post = ({ post, setCurrentId }) => {
       fontSize: 11,
     },
   }))(Tooltip);
+
+  // popup modal body for delete
+  const modalBody = (
+    <div className={classes.paper}>
+      <h2 id="modal-title">Are you sure to delete this post?</h2>
+      <div className={classes.buttonGroup}>
+        <Button size="small" variant="contained" onClick={() => setOpen(false)}>
+          Cancel
+        </Button>
+
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          onClick={() => dispatch(deletePost(post._id))}
+        >
+          Confirm
+        </Button>
+      </div>
+    </div>
+  );
 
   const openPost = () => history.push(`/posts/${post._id}`);
 
@@ -185,16 +209,23 @@ const Post = ({ post, setCurrentId }) => {
         {/* delete button */}
         {userId === post?.creator && (
           <ButtonTooltip title="Delete">
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => dispatch(deletePost(post._id))}
-            >
+            <Button size="small" color="primary" onClick={() => setOpen(true)}>
               <DeleteIcon fontSize="small" />
-               {/* Delete */}
+              {/* Delete */}
             </Button>
           </ButtonTooltip>
         )}
+        {/* popup delete modal */}
+        <Modal
+          open={open}
+          className={classes.modal}
+          onClose={() => setOpen(false)}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          {modalBody}
+        </Modal>
+
       </CardActions>
     </Card>
   );
