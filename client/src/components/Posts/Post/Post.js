@@ -72,6 +72,7 @@ const Post = ({ post, setCurrentId }) => {
     );
   };
 
+  // comments count component
   const CommentsCount = () => {
     if (post.comments.length>0){
       return (
@@ -81,7 +82,6 @@ const Post = ({ post, setCurrentId }) => {
         </>
       )
     }
-
     return (
       <>
         <CommentOutlinedIcon fontSize="small" />
@@ -156,6 +156,7 @@ const Post = ({ post, setCurrentId }) => {
         >
           <Likes />
         </Button>
+        {/* comments count button */}
         <Button
           size="small"
           color="primary"
