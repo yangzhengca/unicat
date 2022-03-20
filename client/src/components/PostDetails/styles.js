@@ -20,6 +20,8 @@ export default makeStyles((theme) => ({
     borderRadius: '20px',
     margin: '10px',
     flex: 1,
+    overflow: 'auto',
+
   },
   imageSection: {
     marginLeft: '20px',
@@ -45,5 +47,11 @@ export default makeStyles((theme) => ({
     height: '200px',
     overflowY: 'auto',
     marginRight: '30px'
+  },
+  title: {
+    marginTop: '20px',
+  },
+  backButton:{
+    borderRadius: '20px',
   }
 }));

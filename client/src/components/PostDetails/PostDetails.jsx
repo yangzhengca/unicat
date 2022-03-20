@@ -56,13 +56,14 @@ const PostDetails = () => {
             component={Link}
             to="/"
             color='primary'
+            className={classes.backButton}
           >
             <ArrowBackIcon /> Go back to posts
           </Button>
 
 
 
-          <Typography variant="h3" component="h2">
+          <Typography variant="h3" component="h2" className={classes.title}>
             {post.title}
           </Typography>
           <Typography
@@ -103,7 +104,7 @@ const PostDetails = () => {
         <div className={classes.section}>
           <Typography gutterBottom variant="h5">You might also like:</Typography>
           <Divider />
-          <div className={classes.recommendedPosts}>
+          <div className={classes.recommendedPosts} onScroll>
             {recommendedPosts.map(({ title, name, message, likes, selectedFile, _id }) => (
               <div style={{ margin: '20px', cursor: 'pointer' }} onClick={() => openPost(_id)} key={_id}>
                 <Typography gutterBottom variant="h6">{title}</Typography>
