@@ -14,7 +14,14 @@ export default makeStyles((theme) => ({
   },
   gridContainer: {
     [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column-reverse',
+      flexDirection: 'column',
     },
   },
+  paper: {
+    borderRadius: 4,
+    margin: '1rem 0',
+    padding: '16px',
+    display:'flex',
+    justifyContent:'space-around'
+  }
 }));

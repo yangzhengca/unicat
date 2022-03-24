@@ -35,10 +35,14 @@ const Navbar = () => {
     setUser(JSON.parse(localStorage.getItem("profile")));
   }, [location]);
 
+  const handleSearch = () => {
+
+  }
+
+
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <Link to='/' className={classes.brandContainer}>
-
+      <Link to="/" className={classes.brandContainer}>
         <img
           className={classes.image}
           src={logo}

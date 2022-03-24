@@ -23,7 +23,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Modal from "@material-ui/core/Modal";
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post, setCurrentId, setShowForm }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -157,6 +157,7 @@ const Post = ({ post, setCurrentId }) => {
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentId(post._id);
+                  setShowForm(true);
                 }}
               >
                 <MoreHorizIcon fontSize="default" />
