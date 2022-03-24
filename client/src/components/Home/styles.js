@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
   },
   paper: {
     borderRadius: 4,
-    margin: '1rem 0',
+    marginBottom: '1rem',
     padding: '16px',
     display:'flex',
     justifyContent:'space-around'

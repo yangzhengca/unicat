@@ -49,15 +49,15 @@ const Form = ({currentId,setCurrentId}) => {
      
   };
 
-  if(!user?.result?.name){
-    return(
-      <Paper className={classes.paper} elevation={6}>
-        <Typography variant='h6' align='center'>
-          Please sign in to create your own post, like others' posts, and leave your comment.
-        </Typography>
-      </Paper>
-    )
-  }
+  // if(!user?.result?.name){
+  //   return(
+  //     <Paper className={classes.paper} elevation={6}>
+  //       <Typography variant='h6' align='center'>
+  //         Please sign in to create or edit your own post.
+  //       </Typography>
+  //     </Paper>
+  //   )
+  // }
 
   return (
     <Paper className={classes.paper} elevation={6}>

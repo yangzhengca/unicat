@@ -7,6 +7,7 @@ import {
   AppBar,
   TextField,
   Button,
+  Typography,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import CreateIcon from "@material-ui/icons/Create";
@@ -42,6 +43,9 @@ const Home = () => {
 
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
+
+  // get user from local storage
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   // show and hide search and create form
   const [showSearch, setShowSearch] = useState(false);
@@ -106,11 +110,24 @@ const Home = () => {
                 </Button>
               </ButtonTooltip>
               <ButtonTooltip title="Create a Post">
-                <Button onClick={() => setShowForm(!showForm)} color="primary">
+                <Button 
+                  onClick={() => setShowForm(!showForm)} color="primary"
+                  disabled={!user?.result?.name && true}
+                >
                   <CreateIcon fontSize="large" />
                 </Button>
               </ButtonTooltip>
             </Paper>
+
+            {/* show information when no user login */}
+            {!user?.result?.name && (
+              <Paper className={classes.paper} elevation={6}>
+                <Typography variant="h6" align="center">
+                  Please sign in to create your own post, like others' posts,
+                  and leave your comment.
+                </Typography>
+              </Paper>
+            )}
 
             {showSearch && (
               <AppBar
